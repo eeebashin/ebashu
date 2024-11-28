@@ -15,7 +15,7 @@ final class ProductFullResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'price' => $this->price,
+            'price' => (float) $this->price,
             'created_at' => $this->formatted_created_at,
             'updated_at' => $this->formatted_updated_at,
         ];

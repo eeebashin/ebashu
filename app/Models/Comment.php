@@ -2,29 +2,34 @@
 
 namespace App\Models;
 
+use App\Traits\CommentTrait;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
-use App\Traits\CategoryTrait;
 
 /**
  * @property int $id
- * @property string $name
- * @property string $slug
+ * @property string $text
+ * @property Carbon $data
+ * @property Carbon $post_id
+ * @property Carbon $parent_id
+ * @property Carbon $tree_id
  * @property Carbon $created_at
  * @property Carbon $updated_at
  *
  * @property string $formatted_created_at
  * @property string $formatted_updated_at
  */
-final class Category extends Model
+
+
+class Comment extends Model
 {
-    use HasFactory, CategoryTrait;
+    use HasFactory, CommentTrait;
 
     protected $guarded = ['id'];
 
     protected $casts = [
         'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
+        'updated_at' => 'datetime'];
+    // Определение связи один ко многим с комментариями
 }

@@ -2,11 +2,13 @@
 
 namespace App\Traits;
 
-use App\Models\Product;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Models\Comment;
+use App\Models\Post;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-trait CategoryTrait
+trait PostTrait
 {
+
 	public function getFormattedCreatedAtAttribute(): string
     {
         return $this->created_at->format('Y-m-d H:i:s');
@@ -17,9 +19,9 @@ trait CategoryTrait
         return $this->updated_at->format('Y-m-d H:i:s');
     }
 
-    public function products(): BelongsToMany
 
+    public function comments(): hasMany
     {
-        return $this->belongsToMany(Product::class, 'product_categories');
+        return $this->hasMany(Comment::class, 'post_id');
     }
 }

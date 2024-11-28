@@ -15,7 +15,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => ['string'],
-            'price' => ['int']
+            'price' => ['numeric']
         ];
     }
 }

@@ -13,9 +13,9 @@ use App\Traits\ProductTrait;
  * @property int $price
  * @property Carbon $created_at
  * @property Carbon $updated_at
- * 
+ *
  * @property string $formatted_created_at
- * @property string $formatted_upated_at
+ * @property string $formatted_updated_at
  */
 final class Product extends Model
 {

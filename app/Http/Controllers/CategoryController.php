@@ -17,7 +17,7 @@ final class CategoryController extends Controller
     {
         return CategoryResource::collection(Category::all());
     }
-    
+
     public function store(StoreRequest $request): CategoryFullResource
     {
         return new CategoryFullResource(Category::query()->create($request->validated()));
@@ -28,7 +28,7 @@ final class CategoryController extends Controller
         return new CategoryFullResource($category);
     }
 
-    public function update(UpdateRequest $request, Category $category)
+    public function update(UpdateRequest $request, Category $category): CategoryFullResource
     {
         $category->update($request->validated());
 
@@ -39,4 +39,5 @@ final class CategoryController extends Controller
     {
         return $category->delete() > 0;
     }
+
 }
